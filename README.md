@@ -5,7 +5,7 @@
 
 
 
-```C
+```C#
 pip install foobar
 ```
 
@@ -32,8 +32,13 @@ pip install foobar
 ```
 ## Delete
 
+```C#
+ public TestModel DelTest(int no)
+        {
+            string query = "DELETE FROM [dbo].[Tabletest] WHERE no=@no";
+            var connection = Dbinfo.MsConnection();
+            var searchModel = new { no = no };
 
-
-```bash
-pip install foobar
+            return connection.Query<TestModel>(query, searchModel).FirstOrDefault();
+        }
 ```
