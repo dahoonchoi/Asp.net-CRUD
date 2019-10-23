@@ -1,0 +1,86 @@
+﻿
+
+
+@{
+    ViewData["Title"] = "GetAllTest";
+}
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://ajax.microsoft.com/ajax/jquery/jquery-1.4.2.js" type="text/javascript"></script>
+
+<script>
+
+    $(document).ready(function () {
+
+
+        $.ajax({
+
+            type: "Post",
+            url: "/Test/GetAllTest",
+            contentType: "application/json; charset=utf-8",
+            error: function () {
+                alert('통신실패!!');
+            },
+            success: function (data) {
+                alert("통신데이터 값 : " + data);
+                $("#dataArea").html(data);
+            }
+
+        });
+
+
+    });
+</script>
+<div id="dataArea"></div>
+
+<div class="row" style="text-align:center">
+
+
+
+        <div style="width:80%">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">No</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Content</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Del</th>
+                        <th scope="col">Edit</th>
+                    </tr>
+                </thead>
+                @foreach (var item in (List<WebApplication7.Models.Test.TestModel>)ViewBag.GetAllTest)
+                {
+                    <tbody>
+                        <tr>
+                            <td scope="row">@item.no</td>
+                            <td>@item.title</td>
+                            <td>@item.contents</td>
+                            <td>@item.date</td>
+                            <td>
+                                <a class="btn btn-outline-primary" asp-controller="Test" asp-action="DelTest" asp-route-no="@item.no">삭제</a>
+                            </td>
+                            <td>
+                                <a class="btn btn-outline-primary" asp-controller="Test" asp-action="PutTest" asp-route-no="@item.no">수정</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                }    hhty:/sdfasfsadf/asdfs?id=1234
+            </table>
+        </div>
+
+
+        <div style="width:20%">
+            <form class="form-signin" method="POST" asp-action="PostTest" asp-controller="Test">
+
+                <label for="inputEmail" class="sr-only">title</label>
+                <input type="text" id="title" name="title" class="form-control" placeholder="title"><BR>
+                <label for="inputPassword" class="sr-only">contents</label>
+                <input type="text" id="contents" name="contents" class="form-control" placeholder="contents"><br>
+
+                <button id="btn-Yes" class="btn btn-lg btn-primary btn-block" type="submit">등록</button>
+            </form>
+        </div>
+
+
+
+    </div>

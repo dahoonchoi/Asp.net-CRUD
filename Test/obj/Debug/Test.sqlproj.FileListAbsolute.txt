@@ -1,0 +1,6 @@
+C:\Users\user\Source\Repos\WebApplication7\Test\bin\Debug\Test.dacpac
+C:\Users\user\Source\Repos\WebApplication7\Test\bin\Debug\Test.dll
+C:\Users\user\Source\Repos\WebApplication7\Test\bin\Debug\Test.pdb
+C:\Users\user\Source\Repos\WebApplication7\Test\obj\Debug\Test.sqlprojAssemblyReference.cache
+C:\Users\user\Source\Repos\WebApplication7\Test\obj\Debug\Test.dll
+C:\Users\user\Source\Repos\WebApplication7\Test\obj\Debug\Test.pdb
